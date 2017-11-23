@@ -12,7 +12,10 @@ struct block_t {
 };
 
 typedef uint32_t page_t;
+
 void *block_get(struct sbv_t *sbv, page_t pagenr);
+int block_open(struct sbv_t *sbv, const char *file);
+void block_close(struct sbv_t *sbv);
 
 // Interface to the backing store:
 /*

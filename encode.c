@@ -97,10 +97,10 @@ uint64_t decode(
 
   offset = decode_bits(&value, log2ceil_plus1(max-min), stream, offset);
   value += min;
-  putter(context, data_i+left, value);
   assert (min <= value && value <= max); // sorted and strictly monotonic
 
   if (left)  offset = decode(lower, value-1, data_i,        left,  putter, context, stream, offset);
+  putter(context, data_i+left, value);
   if (right) offset = decode(value+1, upper, data_i+left+1, right, putter, context, stream, offset);
   return offset;
 }

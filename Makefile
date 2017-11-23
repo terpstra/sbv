@@ -10,7 +10,7 @@ TESTS	= encode-test
 libsbv.so.$(MAJOR): libsbv.so.$(MAJOR).$(MINOR)
 	ln -s $< $@
 	
-libsbv.so.1.0: encode.c
+libsbv.so.1.0: sbv.c cache.c encode.c
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
 clean:
